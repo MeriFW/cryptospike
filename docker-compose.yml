@@ -1,0 +1,14 @@
+version: '3'
+services:
+  cryptospike:
+    build: .
+    ports:
+      - '5672:5672'
+    volumes:
+      - bundle:/usr/local/bundle
+      - '.:/cryptospike'
+    command: bash -c "bundle install"
+
+volumes:
+  bundle:
+    driver: local
